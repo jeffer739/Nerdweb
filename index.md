@@ -23,7 +23,8 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Link](url) and ![Image](![vaccinenmap](https://user-images.githubusercontent.com/64267672/118051371-68269480-b370-11eb-8760-adfd8974499c.png)
+)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
