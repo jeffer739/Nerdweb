@@ -1,5 +1,7 @@
-I just exploited a machine vulnurable to Eternalblue & am sharing now. Enjoy!
+I just exploited a machine vulnurable to Eternalblue & am sharing my writeup on manual & automatic exploitaion. Enjoy!
 
+
+###Manual Exploitation of Windows Eternalblue Vulnurability 
 We start again with an Nmap scan 
 
 
@@ -140,3 +142,21 @@ Generating Reverse shell from shell_prep.sh script,
 Listening on netcat port & boom we have shell as a low pridilege user,
 ![Bluerevshell](https://user-images.githubusercontent.com/64267672/125716045-2bf5e755-cd4c-42bf-ad76-078e69ceb348.png)
 
+Most times We will need a tool like Mimikatz to help us. We will be using certutil.exe this time to pull the file as Powershell is being uncooperative on the older version of Windows.
+
+We are pulling the file from our server, naming it mimikatz.exe, and then running it after the ampersand. We have a Mimikatz command line, which will allow us to grab the NTLM hash we need.
+
+![bluecertutil](https://user-images.githubusercontent.com/64267672/125717997-0864f234-890e-45eb-87ff-7fe9fb23b2d2.png)
+
+And we have the password hashes of the users of the machine;
+![Bluentlmhash](https://user-images.githubusercontent.com/64267672/125718457-f78ec0d0-d8a1-4572-8d61-5ddc6eae7a19.png)
+
+We can crack the password hash of the user of interest, this time (Jon), to get the plain-text password using Crackstation else we use John the ripper or hashcat or any similar tool.
+
+And that's it for manual exploitation of the Windows Eternalblue Vulnurability.
+
+
+###Automatic Exploitaion of Eternalblue (Metasploit)
+
+We can go ahead & search for the vulnurability on the metasploit database 
+![Bluemsf](https://user-images.githubusercontent.com/64267672/125719894-e2068f0f-ab1b-4935-bd7d-692e2aa12828.png)
