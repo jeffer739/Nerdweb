@@ -41,5 +41,19 @@ Now we have a result & 1 lucky hit;
 
 
 so we now what file extention to save our reverse shell now, so we try to upload malicios file but this time saving it as .phtml;
+![vulnversityphpsuccess](https://user-images.githubusercontent.com/64267672/125904448-4d7fa0cc-276c-4725-87df-49f6a6c86b52.png)
+
+And here we go!!
+we can find our file in /uploads directory;
+![vulnversityfileupload](https://user-images.githubusercontent.com/64267672/125904738-c2c6ddb5-e50c-4902-a00d-48793a1b8caf.png)
+
+Now we can setup our netcat listener to listen on the specified port we set on our reverse shell script, mine being port 1337;
+![vulnversitynetcat](https://user-images.githubusercontent.com/64267672/125905190-a7dc5352-eb12-449d-895e-24a60502cfe9.png)
+
+BOOM!! we have a shell as www-data user;
+![vulnversityshell](https://user-images.githubusercontent.com/64267672/125905454-9ec6b6f9-0dd4-40b9-a31b-484914bc3359.png)
+
+now to escalate to higher privilege (root);
+
 
 
