@@ -77,8 +77,7 @@ now to escalate to higher privilege (root);
 You can use any of the popular enumerations scripts available .
 We are looking for a file that has the setuid bit set (In Linux, SUID (set owner userId upon execution) is a special type of file permission given to a file. SUID gives temporary permissions to a user to run the program/file with the permission of the file owner (rather than the user who runs it)
 
-```
-www-data@vulnuniversity:/home/bill$ find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```www-data@vulnuniversity:/home/bill$ find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 < \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null              
 -rwxr-sr-x 1 root tty 27368 May 16  2018 /usr/bin/wall
 -rwxr-sr-x 1 root tty 14752 Mar  1  2016 /usr/bin/bsd-write
@@ -156,6 +155,6 @@ uid=0(root) gid=0(root) groups=0(root)
 ```
 
 ###References-
-```
-https://tryhackme.com/room/vulnversity
+
+```https://tryhackme.com/room/vulnversity
 https://gtfobins.github.io/gtfobins/systemctl/#suid
