@@ -11,3 +11,8 @@
 
 ## **TryHackMe_Writeups:-**
 - **Jun 01, 2021:** [TryHackMe -- Couch] (https://jeffer739.github.io/Nerdweb/posts/couch
+
+
+
+## **CTF_Writeups:-** 
+************  HacktoberCtf 2020 - (https://jeffer739.github.io/Nerdweb/posts/Hacktoberctf/) 
