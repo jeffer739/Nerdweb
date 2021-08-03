@@ -1,3 +1,8 @@
+Hello, i made a writeup for the THM - Mustacchio room. Enjoy!!
+
+![musttt](https://user-images.githubusercontent.com/64267672/127957099-fc60156d-19aa-4924-bfdc-e60049b637a2.png)
+
+
 Starting with an Nmap scan;
 
 ![mustanmap](https://user-images.githubusercontent.com/64267672/127815548-b5f10bb9-84b5-46a2-b2a7-27f2d002834e.png)
@@ -48,53 +53,56 @@ so sending a GET request to the url from the html comment we find an example we 
 
 And with this now we can read the /etc/passwd file and also grab the ssh keys from this machine
 
-```<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE data [
-   <!ELEMENT data ANY >
-   <!ENTITY name SYSTEM "file:///etc/passwd" >]>
-<comment>
-  <name>&name;</name>
-  <author>Barry Clad</author>
-  <com>comments</com>
-</comment>```
 
-![mustetc](https://user-images.githubusercontent.com/64267672/127950858-dd980ac2-3048-4163-9b7c-934bcc021e04.png)
+
+
+![mustetcxxe](https://user-images.githubusercontent.com/64267672/127956173-6c5cbdd8-c55c-4c1a-8ecc-46f07309c060.png)
+
+
 
 and now the ssh key 
 
-```<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE data [
-   <!ELEMENT data ANY >
-   <!ENTITY name SYSTEM "file:///home/barry/.ssh/id_rsa" >]>
-<comment>
-  <name>&name;</name>
-  <author>Barry Clad</author>
-  <com>comments</com>
-</comment>```
+![mustsshxxe](https://user-images.githubusercontent.com/64267672/127956362-9ca4c792-359b-4ebc-a7f1-8ea24790973c.png)
 
-![mustssh](https://user-images.githubusercontent.com/64267672/127951064-94dcfe73-ce2c-4bd0-84bb-d95fae2bf4c0.png)
 
 now we can save the file locally and try to ssh but we find out the key password protected
 
 For this we can use the ssh2john tool to convert the key to hash & then crack hash with john
 
-```┌──(Nerdy㉿kali)-[~]
-└─$ john hash --wordlist=/usr/share/wordlists/rockyou.txt                   
-Using default input encoding: UTF-8
-Loaded 1 password hash (SSH [RSA/DSA/EC/OPENSSH (SSH private keys) 32/64])
-Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 0 for all loaded hashes
-Cost 2 (iteration count) is 1 for all loaded hashes
-Will run 4 OpenMP threads
-Note: This format may emit false positives, so it will keep trying even after
-finding a possible candidate.
-Press 'q' or Ctrl-C to abort, almost any other key for status
-ur****es       (id_rsa)
-Warning: Only 2 candidates left, minimum 4 needed for performance.
-1g 0:00:00:16 DONE (2021-08-03 03:09) 0.05885g/s 844125p/s 844125c/s 844125C/sa6_123..*7¡Vamos!
-Session completed```
-
-After changing the perms for the key Now we can ssh into the Barry machine successfully using the key & password;
+![mustsshpas](https://user-images.githubusercontent.com/64267672/127955660-73c467d5-87ea-489b-bf39-7caaff17f184.png)
 
 
+After changing the perms for the key Now we can ssh into the Barry machine successfully using the key & password and we can find our user.txt right there;
 
 
+![mustuser](https://user-images.githubusercontent.com/64267672/127953264-4e9cfb9d-cf5e-4355-a890-3fddb82f4047.png)
+
+Time to root!
+
+Moving around & enumerating we find 2 users on the machine a an interesting binary on the Joe user;
+
+
+Looking for suid bits set & we find some interesting stuff;
+
+![mustsuid](https://user-images.githubusercontent.com/64267672/127953846-0251a17e-81ce-4594-87c6-5773108edf02.png)
+
+Still enumerating, we find out we are able to execute the file so running strings on the file reveals to us that this binary runs the tail command without the absolute path. That makes me think of Path Variable attack.
+
+
+![muststrings](https://user-images.githubusercontent.com/64267672/127954305-7ccb8d82-d325-43b6-963e-0c547c7ebee5.png)
+
+Exploiting to root!
+
+createa file in /tmp that executes /bin/bash and give it permission to run
+export the PATH variable to point to the /tmp directory
+Now run the file
+
+![mustroot](https://user-images.githubusercontent.com/64267672/127954721-54d0b08c-60ca-4330-9612-028329a186f7.png)
+
+
+### External refrences;
+```
+https://tryhackme.com/room/mustacchio
+https://crackstation.net/
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+```
