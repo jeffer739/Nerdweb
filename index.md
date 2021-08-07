@@ -17,7 +17,8 @@
 - **Jul 17, 2021:** [TryHackMe -- Blue] (https://jeffer739.github.io/Nerdweb/posts/Blue/
 
 - **Aug 03, 2021:** [TryHackMe -- Mustacchio] https://jeffer739.github.io/Nerdweb/posts/Mustacchio/
-
+- **Aug 07, 2021:** [TryHackMe -- CMSpit] https://jeffer739.github.io/Nerdweb/posts/CMSpit/
+ 
 
 ## **CTF_Writeups:-** 
 ************  HacktoberCtf 2020 - (https://jeffer739.github.io/Nerdweb/posts/Hacktoberctf/) 
