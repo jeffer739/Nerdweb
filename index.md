@@ -20,5 +20,13 @@
 - **Aug 07, 2021:** [TryHackMe -- CMSpit] https://jeffer739.github.io/Nerdweb/posts/CMSpit/
  
 
+
+
+## **HackTheBox_Writeups:-**
+- **Aug 15, 2021:** [HackTheBox -- Cap] (https://jeffer739.github.io/Nerdweb/posts/Cap
+
+
+
+
 ## **CTF_Writeups:-** 
 ************  HacktoberCtf 2020 - (https://jeffer739.github.io/Nerdweb/posts/Hacktoberctf/) 
