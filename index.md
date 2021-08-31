@@ -18,7 +18,7 @@
 
 - **Aug 03, 2021:** [TryHackMe -- Mustacchio] https://jeffer739.github.io/Nerdweb/posts/Mustacchio/
 - **Aug 07, 2021:** [TryHackMe -- CMSpit] https://jeffer739.github.io/Nerdweb/posts/CMSpit/
- 
+- **Aug 31, 2021:** [TryHackMe -- Skynet] https://jeffer739.github.io/Nerdweb/posts/Skynet/
 
 
 
