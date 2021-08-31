@@ -1,5 +1,8 @@
 Here I'm sharing how i attacked the Skynet machine on TryHackMe.
 
+![skynetbanner](https://user-images.githubusercontent.com/64267672/131548745-7e469214-c9f4-495e-9e18-036abe01748b.png)
+
+
 Starting with an Nmap scan;
 ![skynetnmap](https://user-images.githubusercontent.com/64267672/131534547-948ef292-5386-4865-88d1-f21cecf6a2c5.png)
 
