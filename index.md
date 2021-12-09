@@ -10,17 +10,17 @@
 
 
 ## **TryHackMe_Writeups:-**
-- **Jun 01, 2021:** [TryHackMe -- Couch] (https://jeffer739.github.io/Nerdweb/posts/couch
+- **Jun 01, 2021:** [TryHackMe -- Couch] (https://jeffer739.github.io/Nerdweb/posts/couch)
 
-- **Jul 16, 2021:** [TryHackMe -- Vulnversity] (https://jeffer739.github.io/Nerdweb/posts/Vulnversity/
+- **Jul 16, 2021:** [TryHackMe -- Vulnversity] (https://jeffer739.github.io/Nerdweb/posts/Vulnversity/)
 
-- **Jul 17, 2021:** [TryHackMe -- Blue] (https://jeffer739.github.io/Nerdweb/posts/Blue/
+- **Jul 17, 2021:** [TryHackMe -- Blue] (https://jeffer739.github.io/Nerdweb/posts/Blue/)
 
-- **Aug 03, 2021:** [TryHackMe -- Mustacchio] https://jeffer739.github.io/Nerdweb/posts/Mustacchio/
-- **Aug 07, 2021:** [TryHackMe -- CMSpit] https://jeffer739.github.io/Nerdweb/posts/CMSpit/
-- **Aug 31, 2021:** [TryHackMe -- Skynet] https://jeffer739.github.io/Nerdweb/posts/Skynet/
+- **Aug 03, 2021:** [TryHackMe -- Mustacchio] (https://jeffer739.github.io/Nerdweb/posts/Mustacchio/)
+- **Aug 07, 2021:** [TryHackMe -- CMSpit] (https://jeffer739.github.io/Nerdweb/posts/CMSpit/)
+- **Aug 31, 2021:** [TryHackMe -- Skynet] (https://jeffer739.github.io/Nerdweb/posts/Skynet/)
 
-- **Nov 09, 2021:** [TryHackMe -- Road] https://jeffer739.github.io/Nerdweb/posts/road/
+- **Nov 09, 2021:** [TryHackMe -- Road] (https://jeffer739.github.io/Nerdweb/posts/road/)
 
 
 
