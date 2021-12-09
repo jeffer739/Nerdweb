@@ -71,3 +71,63 @@ We got a shell as well as prove as user.txt,
 
 We enumerate again to escalate priviledge;
 
+
+Met some rabbit holes while enumerating this one, but looking services running locally & something interesting here;
+
+![image](https://user-images.githubusercontent.com/64267672/145364042-49e21e65-2478-4091-b8fa-c2dd5491dbd5.png)
+
+
+SQL running on port 33060 & MongDB running on port 27017. 
+Time to open MongoDB in terminal.
+
+![image](https://user-images.githubusercontent.com/64267672/145372357-9511d430-94c1-4987-827b-ed6a2bbe79f5.png)
+
+
+And we find some credentials, so i think we can test now on ssh;
+
+
+
+![image](https://user-images.githubusercontent.com/64267672/145367825-58746e01-4986-4b1f-90ed-a575bf7e0a9b.png)
+
+now we have access to test for sudo privileges & doing that we find we that webdeveloper can run  /usr/bin/sky_backup_utility as sudo also without password
+
+
+
+/etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf contains AdminIdentities=unix-group:sudo;unix-group:admin (Default in Ubuntu)
+
+pkexec allows an authorized user to execute commands as another user & as webdeveloper is a member of the sudo group then we can use psexec
+
+
+![image](https://user-images.githubusercontent.com/64267672/145372687-5ac46fc6-a924-441f-9390-ebc896cd857f.png)
+
+
+
+And we are root! 😉
+
+
+Figured we can root this machine another way, so let's see how.
+
+
+So back to webdeveloper user shell;
+
+
+![image](https://user-images.githubusercontent.com/64267672/145373287-b15c8a7d-f9af-46e2-b0a1-b4df2d43c299.png)
+
+
+
+sudo -l shows /usr/bin/sky_backup_utility has LD_PRELOAD explicitly defined in the sudoers fileed
+
+
+![image](https://user-images.githubusercontent.com/64267672/145373432-ab5c024b-624e-4877-97df-8c7904a99ea3.png)
+
+
+now we can write our C code & compile with gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+
+
+![image](https://user-images.githubusercontent.com/64267672/145373761-67c78a93-7d2d-44e5-9923-cdb0130e1a44.png)
+
+
+Now we execute it with sudo LD_PRELOAD=/home/webdeveloper/shell.so sky_backup_utility and we are root! 
+
+![image](https://user-images.githubusercontent.com/64267672/145375217-a165e1c2-b1c7-4226-b006-66999042e412.png)
+
