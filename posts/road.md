@@ -93,6 +93,13 @@ now we have access to test for sudo privileges & doing that we find we that webd
 
 
 
+
+
+![image](https://user-images.githubusercontent.com/64267672/145377629-54f176ec-6ecd-4d54-b2d2-60f2e4826ce3.png)
+
+
+
+
 /etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf contains AdminIdentities=unix-group:sudo;unix-group:admin (Default in Ubuntu)
 
 pkexec allows an authorized user to execute commands as another user & as webdeveloper is a member of the sudo group then we can use psexec
@@ -105,7 +112,15 @@ pkexec allows an authorized user to execute commands as another user & as webdev
 And we are root! 😉
 
 
+
+
+
+
 Figured we can root this machine another way, so let's see how.
+
+
+
+
 
 
 So back to webdeveloper user shell;
