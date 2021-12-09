@@ -152,10 +152,11 @@ Now we execute it with ```sudo LD_PRELOAD=/home/webdeveloper/shell.so sky_backup
 
 ### REFRENCES
 
-[hi](https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415)
+
+[https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415](https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415)
 
 
-[hi](https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415)
+[https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415](https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415)
 
 
-[hi](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#ld_preload-and-nopasswd)
+[(https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#ld_preload-and-nopasswd](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#ld_preload-and-nopasswd)
