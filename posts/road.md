@@ -146,3 +146,11 @@ Now we execute it with sudo LD_PRELOAD=/home/webdeveloper/shell.so sky_backup_ut
 
 ![image](https://user-images.githubusercontent.com/64267672/145375217-a165e1c2-b1c7-4226-b006-66999042e412.png)
 
+
+
+
+
+### REFRENCES
+https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415
+https://bugs.launchpad.net/ubuntu/+source/policykit-1/+bug/1821415
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md#ld_preload-and-nopasswd
