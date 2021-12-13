@@ -108,7 +108,12 @@ pkexec allows an authorized user to execute commands as another user & as webdev
 ![image](https://user-images.githubusercontent.com/64267672/145372687-5ac46fc6-a924-441f-9390-ebc896cd857f.png)
 
 
-
+(2 ssh instances)
+First shell - echo $$ (get some id)
+Second shell - pkttyagent -p <id>
+First shell - pkexec /bin/bash
+  
+  
 And we are root! 😉
 
 
