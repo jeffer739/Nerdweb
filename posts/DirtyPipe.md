@@ -456,5 +456,9 @@ Ensure that you apply updates to all of your Linux devices (including any Androi
 	
 ####RESOURCES
 	https://dirtypipe.cm4all.com/
+	
+	
 	https://haxx.in/files/dirtypipez.c
+	
+	
 	https://tryhackme.com/room/dirtypipe
