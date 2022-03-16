@@ -34,3 +34,7 @@
 
 ## **CTF_Writeups:-** 
 ************  HacktoberCtf 2020 - (https://jeffer739.github.io/Nerdweb/posts/Hacktoberctf/) 
+
+
+## **Infos:-** 
+- **Mar 16, 2022:** [CVE-2022-0847] (https://jeffer739.github.io/Nerdweb/posts/DirtyPipe
