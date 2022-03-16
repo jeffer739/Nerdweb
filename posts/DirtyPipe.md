@@ -452,3 +452,9 @@ Patched versions of the Linux Kernel have been released for supported major kern
 
 Ensure that you apply updates to all of your Linux devices (including any Android) as soon as security patches are released.
   
+	
+	
+####RESOURCES
+	https://dirtypipe.cm4all.com/
+	https://haxx.in/files/dirtypipez.c
+	https://tryhackme.com/room/dirtypipe
