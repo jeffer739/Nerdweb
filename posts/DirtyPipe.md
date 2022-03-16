@@ -175,7 +175,7 @@ Finally, insert your username and hash into this passwd entry template: USERNAME
 Your entry should look something like this:
 
 ````
-muiri:$6$THM$eRD0Ur0SZuwDLSwf9Lb2vyC2T6/PtQUA/B0Ssm6/jsiBtpSvc6QLjhFF0XNM8odgfkxMnC4oczGuvEomrVRfz0:0:0::/root:/bin/bash
+nerdy:$6$THM$eRD0Ur0SZuwDLSwf9Lb2vyC2T6/PtQUA/B0Ssm6/jsiBtpSvc6QLjhFF0XNM8odgfkxMnC4oczGuvEomrVRfz0:0:0::/root:/bin/bash
 `````
 
 As we are overwriting existing entries in the password file, we also need to add a new line on at the end of our entry. This ensures that we avoid corrupting our entry with any remnants of the previous contents of the line.
