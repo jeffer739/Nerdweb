@@ -70,7 +70,9 @@ TRANSFER FILE WITH SCP TO TARGET - sudo scp -i /Users/nerdy/.ssh/id_rsa exploit.
 
 
 ###RESOURCES
+
 https://app.hackthebox.com/machines/RouterSpace
+
 https://github.com/worawit/CVE-2021-3156/blob/main/exploit_nss.py
 
 
