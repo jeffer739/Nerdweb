@@ -57,7 +57,7 @@ now we can ssh with the keys
 
 now we have shell access through ssh & here user.txt
 
-now to get root, i noticed through linpeas result target is running vulnurable sudo version 1.8.31
+now to get root, i noticed through linpeas result target is running vulnurable sudo version 1.8.31 / CVE-2021-3156
 
 did some research & found some known public explot for it 
 
