@@ -27,9 +27,9 @@
 
 
 ## **HackTheBox_Writeups:-**
-- **Aug 15, 2021:** [HackTheBox -- Cap] (https://jeffer739.github.io/Nerdweb/posts/Cap
-- **Mar 05, 2022:** [HackTheBox -- Timing] (https://jeffer739.github.io/Nerdweb/posts/Timing
-- **Mar 20, 2022:** [HackTheBox -- Routerspace] (https://jeffer739.github.io/Nerdweb/posts/Routerspace
+- **Aug 15, 2021:** [HackTheBox -- Cap] (https://jeffer739.github.io/Nerdweb/posts/Cap)
+- **Mar 05, 2022:** [HackTheBox -- Timing] (https://jeffer739.github.io/Nerdweb/posts/Timing)
+- **Mar 20, 2022:** [HackTheBox -- Routerspace] (https://jeffer739.github.io/Nerdweb/posts/Routerspace)
 
 
 ## **CTF_Writeups:-** 
@@ -40,10 +40,10 @@
 
 ## **ProvingGrounds_Writeups:-** 
 
-- **Mar 27, 2022:** [ProvingGround -- Sar] (https://jeffer739.github.io/Nerdweb/posts/Sar
+- **Mar 27, 2022:** [ProvingGround -- Sar] (https://jeffer739.github.io/Nerdweb/posts/Sar)
 
 
 
 
 ## **Infos:-** 
-- **Mar 16, 2022:** [CVE-2022-0847] (https://jeffer739.github.io/Nerdweb/posts/DirtyPipe
+- **Mar 16, 2022:** [CVE-2022-0847] (https://jeffer739.github.io/Nerdweb/posts/DirtyPipe)
