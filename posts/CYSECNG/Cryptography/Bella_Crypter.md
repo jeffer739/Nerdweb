@@ -4,7 +4,7 @@ Bella Crypter
 
 We can copy & paste this random string (hash) into google.com & we will see so many linked resources using the same hash, most are decoded already.
 
-We also can use hashcat tool with this command 'hashcat -m 3200 hash.txt rockyou.txt ' where hash.txt is where our hash is being stored
+We also can use hashcat tool with this command 'hashcat -m 3200 hash.txt rockyou.txt ' where hash.txt is where our hash is being stored & rockyou.txt contains the list of passwords to iterate through & locate a valid result from
 
 of course i used google lol. I have the same hash & decoded string linked below
 
