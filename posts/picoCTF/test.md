@@ -3,35 +3,35 @@ Here guys are my writeup for challenges solved during the latest picoCTF 2023
 
 #General Skills
 
-() Chrono
+<h3> Chrono </h3>
 
 ![image](https://user-images.githubusercontent.com/64267672/228117698-4184bd30-b03b-4b50-8ba3-941a0417a0f5.png)
 
-() Permissions
+<h3> Permissions </h3>
 
 ![image](https://user-images.githubusercontent.com/64267672/228118455-d825d58f-77b5-44a2-b1c9-fb523ba4b3be.png)
 
 
-() repetitions
+<h3> repetitions </h3>
 
 Decoding the base64 encoded text 6 times gets us the decoded flag to submit
 
 ![image](https://user-images.githubusercontent.com/64267672/228119610-b6bd99b8-1361-41be-9cab-b8938deaed22.png)
 
 
-() Rules 2023
+<h3> Rules 2023 </h3>
 
 Reading the rules of engagement of the competition, i can see the flag within (a simple search can get you it too)
 
 ![image](https://user-images.githubusercontent.com/64267672/228120017-d8ebf8bc-65fb-4950-b629-ae0a739dfe3f.png)
 
-() useless
+<h3> useless </h3>
 
 Reading the man page of the script in the user home directory & we can find the flag as part of the author description 
 
 ![image](https://user-images.githubusercontent.com/64267672/228121066-b056c8e3-3b26-43a4-a43b-2b5df0321a6e.png)
 
-() Special
+<h3> Special </h3>
 
 ![image](https://user-images.githubusercontent.com/64267672/228122187-355f00b0-0016-4678-89a5-4c7e24e97839.png)
 
@@ -39,7 +39,7 @@ Reading the man page of the script in the user home directory & we can find the 
 
 #Reverse Engineering 
 
-() Timer
+<h3> Timer </h3>
 
 ![image](https://user-images.githubusercontent.com/64267672/228123398-f73e19e4-6b32-41d0-a669-cce6bca8749a.png)
 
@@ -50,7 +50,7 @@ Reading the man page of the script in the user home directory & we can find the 
 ![image](https://user-images.githubusercontent.com/64267672/228123684-ef094590-f5b6-41c7-abe1-5e5c3fbed751.png)
 
 
-() Ready Gladiator 1 
+<h3> Ready Gladiator 1 </h3>
 
 The Challenge;
 
@@ -65,7 +65,7 @@ After so much CoreWars research i found a public exploit code that worked & prin
 ![image](https://user-images.githubusercontent.com/64267672/228849898-19b14346-40f4-4dfc-84bf-829db5f79098.png)
 
 
-() Ready Gladiator 2
+<h3> Ready Gladiator 2 </h3>
 
 The Challenge;
 
@@ -81,7 +81,7 @@ I solved this challenge with the same payload but as the hint says, i kept repea
 
 #Web Exploitation 
 
-() findme
+<h3> findme </h3>
 
 The Challenge 
 
@@ -101,7 +101,7 @@ Capturing all the web traffic with burp & we can observe the redirections has di
 
 
 
-() MatchTheRegex
+  <h3> MatchTheRegex </h3>
 
 The challenge;
 
@@ -119,7 +119,7 @@ The right regex prints the flag
 
 
 
-() Soap
+<h3> Soap </h3>
 
 The challenge;
 
@@ -134,7 +134,7 @@ The solution;
 ![image](https://user-images.githubusercontent.com/64267672/228134955-4d0dc30f-be76-47b8-89a1-91682ed0ad5f.png)
 
 
-() More SQLi
+<h3> More SQLi </h3>
 
 The challenge;
 
@@ -150,7 +150,7 @@ The solution;
 ![image](https://user-images.githubusercontent.com/64267672/228136639-7c5d1d0e-1a91-4d9a-90e9-5aa1d5e0b83f.png)
 
 
-() Java Code Analysis!?!
+<h3> Java Code Analysis!?! </h3>
 
 The challenge;
 
@@ -202,7 +202,7 @@ We can see the different id numbers to access whatever book we need,here we need
 
 #Binary Exploitation
 
-() <h3> TwoSum </h3>
+<h3> TwoSum </h3>
 ![image](https://user-images.githubusercontent.com/113513376/228693406-b11eb83e-0421-4224-a4fa-a0ea99145dc0.png)
 
 The source code for the binary is given
@@ -225,7 +225,7 @@ So if we give it `2147483647` and `1` it will cause an integer overflow which wi
 Trying it remotely works
 ![image](https://user-images.githubusercontent.com/113513376/229057520-be08bf7b-b4ea-4aae-b688-6422697e3601.png)
 
-() <h3> BabyGame02 </h3>
+<h3> BabyGame02 </h3>
 ![image](https://user-images.githubusercontent.com/113513376/228694432-30c4f2af-6d09-4f81-8e83-9066b495d5ef.png)
 
 After downloading the binary the next thing i check was its file type and protections enabled on the binary
@@ -391,7 +391,7 @@ Running it gives the flag
 ![image](https://user-images.githubusercontent.com/113513376/229084331-0ed82734-7732-4455-b0f1-3e3ea2e3291b.png)
 
 
-() <h3> VNE </h3>
+<h3> VNE </h3>
 ![image](https://user-images.githubusercontent.com/113513376/228703179-7349a3e6-6c9a-48e8-b2a5-c6ec27cec495.png)
 
 After connecting to the ssh instance it shows this binary file
@@ -411,7 +411,7 @@ I searched for command injection in environment variable and got [Resource](http
 Trying it works and we get shell as root
 ![image](https://user-images.githubusercontent.com/113513376/229088997-659875b6-3c93-4b9f-b747-d92f2e41ede4.png)
 
-() <h3> HorseTrack </h3>
+<h3> HorseTrack </h3>
 ![image](https://user-images.githubusercontent.com/113513376/228821375-eda5f850-5ea6-4a90-86dd-426bc072e4f4.png)
 
 After downloading the binary i ran it to get an idea of what it does
