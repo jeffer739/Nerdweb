@@ -1,4 +1,8 @@
-Here guys are my writeup for challenges solved during the latest picoCTF 2023
+Here guys, are my writeup for challenges solved during the latest picoCTF 2023 where my team finished 2nd/JOINT 1st please 😠
+
+
+![image](https://user-images.githubusercontent.com/64267672/229249726-fb8aa0a5-8c01-43aa-8a01-16132d138179.png)
+
 
 
 #General Skills
@@ -34,6 +38,10 @@ Reading the man page of the script in the user home directory & we can find the 
 <h3> Special </h3>
 
 ![image](https://user-images.githubusercontent.com/64267672/228122187-355f00b0-0016-4678-89a5-4c7e24e97839.png)
+
+
+
+<h3> Specialer </h3>
 
 
 
@@ -77,6 +85,34 @@ The solution;
 I solved this challenge with the same payload but as the hint says, i kept repeating it(11x) subsequently until i eventually got the flag
 
 ![image](https://user-images.githubusercontent.com/64267672/228852166-11178b0d-cdde-4ad8-b9ff-e3de8ca34b95.png)
+
+
+<h3> No Way Out </h3>
+
+![image](https://user-images.githubusercontent.com/64267672/229240220-a3831309-899d-4ef4-8dac-177b4ee15533.png)
+
+
+I downloaded & tried to play the game at first, then i observed being blocked by some stuff at the wall & i don't get any flag. I try to make some research on unity games reversing & read some writups as well then resorted to using dnSpy with that i found a file Assembly-CSharp.dll in pico_Data/Managed which contains the C# files 
+
+
+```
+if (Input.GetButton("Jump") && this.canMove && this.characterController.isGrounded && !this.isClimbing)
+{
+    this.moveDirection.y = this.jumpSpeed;
+}
+```
+
+I changed the moveDirection.y of the jumb button to a contant value, saved it & compiled again. Running the game again i observed i wasn't restricted to jump higher & that got me the flag pewww!!
+
+
+<h3> Virtual Machine 2 </h3>
+
+![image](https://user-images.githubusercontent.com/64267672/229250203-2d129285-6732-42bc-9d52-fb7f6542bb91.png)
+
+
+For this challenge i used the same solve script as my teammate, all i needed to do was find the ratio between three adjacent gears and the answer to the final ratio is 9359
+
+
 
 
 #Web Exploitation 
@@ -226,15 +262,23 @@ Trying it remotely works
 ![image](https://user-images.githubusercontent.com/113513376/229057520-be08bf7b-b4ea-4aae-b688-6422697e3601.png)
 
 <h3> BabyGame02 </h3>
+
+
 ![image](https://user-images.githubusercontent.com/113513376/228694432-30c4f2af-6d09-4f81-8e83-9066b495d5ef.png)
 
+
 After downloading the binary the next thing i check was its file type and protections enabled on the binary
+
+
 ![image](https://user-images.githubusercontent.com/113513376/229067106-366bce12-2757-4f35-bea2-7ddcc4753115.png)
 
 So we're working with a x86 binary and the only protections enabled is just No Execute (NX)
 
 Using ghidra i'll decompile the binary
+
+
 ![image](https://user-images.githubusercontent.com/113513376/228695541-5d0cdbd0-3878-44c4-aecb-1301f1162d90.png)
+
 
 This is still the same binary as game01 but the only difference here is that after the user wins the game the win function isn't called
 
@@ -392,16 +436,22 @@ Running it gives the flag
 
 
 <h3> VNE </h3>
+
+
 ![image](https://user-images.githubusercontent.com/113513376/228703179-7349a3e6-6c9a-48e8-b2a5-c6ec27cec495.png)
 
 After connecting to the ssh instance it shows this binary file
+
 ![image](https://user-images.githubusercontent.com/113513376/229088006-25f77194-f7d7-4b2c-9a9c-6fd7a2ff5f7a.png)
 
 Running it asks to set the SECRET_DIR environment variable
+
 ![image](https://user-images.githubusercontent.com/113513376/229088835-33c6ebfc-9dee-4f6a-b7b2-81f3f7b81f12.png)
 
 So i set it to /root
+
 ![image](https://user-images.githubusercontent.com/113513376/229088304-d12ef8cc-4672-4203-b1b9-1c2598d80c01.png)
+
 And after running it, it shows the list of files in root directory
 
 So its likely doing ls then getenv(SECRET_DIR) 
@@ -409,12 +459,16 @@ So its likely doing ls then getenv(SECRET_DIR)
 I searched for command injection in environment variable and got [Resource](https://int0x33.medium.com/day-29-set-user-id-environment-variable-injection-path-user-for-linux-priv-esc-ea6c0adc19b8)
 
 Trying it works and we get shell as root
+
 ![image](https://user-images.githubusercontent.com/113513376/229088997-659875b6-3c93-4b9f-b747-d92f2e41ede4.png)
 
 <h3> HorseTrack </h3>
+
+
 ![image](https://user-images.githubusercontent.com/113513376/228821375-eda5f850-5ea6-4a90-86dd-426bc072e4f4.png)
 
 After downloading the binary i ran it to get an idea of what it does
+
 ![image](https://user-images.githubusercontent.com/113513376/229089970-60011c18-994a-4269-9401-3e8d75e9a773.png)
 
 From the challenge description we can tell its a heap sort of challenge and its likely UAF since i noticed most pwn heap chall pico ctf brings are based on UAF
