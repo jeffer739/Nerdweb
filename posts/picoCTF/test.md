@@ -43,6 +43,17 @@ Reading the man page of the script in the user home directory & we can find the 
 
 <h3> Specialer </h3>
 
+![image](https://user-images.githubusercontent.com/64267672/229359278-e62cd751-6f0a-45d7-a8fb-47ae957af7ea.png)
+
+I observed the allowed programs to run then i could craft a payload to list files & read the flag eventually 
+
+
+![image](https://user-images.githubusercontent.com/64267672/229359360-c60fc892-c60f-4b26-a2f6-ef3d05df364d.png)
+
+
+![image](https://user-images.githubusercontent.com/64267672/229359387-58b921ce-4523-4d32-9b4b-ed10b2476ae8.png)
+
+
 
 
 #Reverse Engineering 
@@ -137,7 +148,7 @@ Capturing all the web traffic with burp & we can observe the redirections has di
 
 
 
-  <h3> MatchTheRegex </h3>
+<h3> MatchTheRegex </h3>
 
 The challenge;
 
@@ -233,6 +244,162 @@ We can see the different id numbers to access whatever book we need,here we need
 
 
 ![image](https://user-images.githubusercontent.com/64267672/228144039-43d1b97f-7539-4157-80fc-c9995ee1317b.png)
+
+
+
+
+#Cryptography
+
+
+<h3> PowerAnalysis: Warmup </h3>
+
+![image](https://user-images.githubusercontent.com/64267672/229341028-9831540f-43dc-419a-9d27-8b9ba5c9059c.png)
+
+
+Now looking at the encrypt.py file here;
+
+```
+#!/usr/bin/env python3
+import random, sys, time
+
+with open("key.txt", "r") as f:
+    SECRET_KEY = bytes.fromhex(f.read().strip())
+
+Sbox = (
+    0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
+    0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0,
+    0xB7, 0xFD, 0x93, 0x26, 0x36, 0x3F, 0xF7, 0xCC, 0x34, 0xA5, 0xE5, 0xF1, 0x71, 0xD8, 0x31, 0x15,
+    0x04, 0xC7, 0x23, 0xC3, 0x18, 0x96, 0x05, 0x9A, 0x07, 0x12, 0x80, 0xE2, 0xEB, 0x27, 0xB2, 0x75,
+    0x09, 0x83, 0x2C, 0x1A, 0x1B, 0x6E, 0x5A, 0xA0, 0x52, 0x3B, 0xD6, 0xB3, 0x29, 0xE3, 0x2F, 0x84,
+    0x53, 0xD1, 0x00, 0xED, 0x20, 0xFC, 0xB1, 0x5B, 0x6A, 0xCB, 0xBE, 0x39, 0x4A, 0x4C, 0x58, 0xCF,
+    0xD0, 0xEF, 0xAA, 0xFB, 0x43, 0x4D, 0x33, 0x85, 0x45, 0xF9, 0x02, 0x7F, 0x50, 0x3C, 0x9F, 0xA8,
+    0x51, 0xA3, 0x40, 0x8F, 0x92, 0x9D, 0x38, 0xF5, 0xBC, 0xB6, 0xDA, 0x21, 0x10, 0xFF, 0xF3, 0xD2,
+    0xCD, 0x0C, 0x13, 0xEC, 0x5F, 0x97, 0x44, 0x17, 0xC4, 0xA7, 0x7E, 0x3D, 0x64, 0x5D, 0x19, 0x73,
+    0x60, 0x81, 0x4F, 0xDC, 0x22, 0x2A, 0x90, 0x88, 0x46, 0xEE, 0xB8, 0x14, 0xDE, 0x5E, 0x0B, 0xDB,
+    0xE0, 0x32, 0x3A, 0x0A, 0x49, 0x06, 0x24, 0x5C, 0xC2, 0xD3, 0xAC, 0x62, 0x91, 0x95, 0xE4, 0x79,
+    0xE7, 0xC8, 0x37, 0x6D, 0x8D, 0xD5, 0x4E, 0xA9, 0x6C, 0x56, 0xF4, 0xEA, 0x65, 0x7A, 0xAE, 0x08,
+    0xBA, 0x78, 0x25, 0x2E, 0x1C, 0xA6, 0xB4, 0xC6, 0xE8, 0xDD, 0x74, 0x1F, 0x4B, 0xBD, 0x8B, 0x8A,
+    0x70, 0x3E, 0xB5, 0x66, 0x48, 0x03, 0xF6, 0x0E, 0x61, 0x35, 0x57, 0xB9, 0x86, 0xC1, 0x1D, 0x9E,
+    0xE1, 0xF8, 0x98, 0x11, 0x69, 0xD9, 0x8E, 0x94, 0x9B, 0x1E, 0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF,
+    0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42, 0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16,
+)
+
+# Leaks one bit of information every operation
+leak_buf = []
+def leaky_aes_secret(data_byte, key_byte):
+    out = Sbox[data_byte ^ key_byte]
+    leak_buf.append(out & 0x01)
+    return out
+
+# Simplified version of AES with only a single encryption stage
+def encrypt(plaintext, key):
+    global leak_buf
+    leak_buf = []
+    ciphertext = [leaky_aes_secret(plaintext[i], key[i]) for i in range(16)]
+    return ciphertext
+
+# Leak the number of 1 bits in the lowest bit of every SBox output
+def encrypt_and_leak(plaintext):
+    ciphertext = encrypt(plaintext, SECRET_KEY)
+    ciphertext = None # throw away result
+    time.sleep(0.01)
+    return leak_buf.count(1)
+
+pt = input("Please provide 16 bytes of plaintext encoded as hex: ")
+if len(pt) != 32:
+    print("Invalid length")
+    sys.exit(0)
+
+pt = bytes.fromhex(pt)
+print("leakage result:", encrypt_and_leak(pt))
+```
+Now Thanks to chatgpt & some team chat to share ideas, i can deduce that, This is a Python script that reads a secret key from a file called "key.txt" and stores it in a variable called "SECRET_KEY" as a byte object. It also defines a lookup table called "Sbox" that contains a fixed permutation of 256 bytes.
+
+Now i ask chatgpt for some examples, 
+
+![image](https://user-images.githubusercontent.com/64267672/229341270-fb2d90cd-993e-4808-84b5-152f6dae484e.png)
+
+
+![image](https://user-images.githubusercontent.com/64267672/229341311-6f5ed9b8-ae2b-4a49-8dc4-f678095d4312.png)
+
+
+![image](https://user-images.githubusercontent.com/64267672/229341347-03713098-cb26-4eeb-952b-93430d19c227.png)
+
+With that understanding & logic of the examples i came up with how to solve as;
+
+Generate a script to leak 
+
+![image](https://user-images.githubusercontent.com/64267672/229344131-f6821e7e-b37b-4d92-95b8-40cb67c357e6.png)
+
+
+![image](https://user-images.githubusercontent.com/64267672/229344027-a7495fc7-ce7b-4903-8c15-e4fc208205f3.png)
+
+Here we can find a leak
+
+Then i observe that the leak output & leak position has a difference of 1 
+
+After converting all leak output & leak position to 0 & 1 I could bruteforce to get keys 
+
+I collcted the dataset of over 250 leak traces, we can then perform the side-channel attack. with the LSB bit of the output as the target
+
+We can take the first bytes of each to come up with a key each, which should be the one with the highest score for each byte. Now we can extract to get the flag 
+
+```
+found_key = np.nanargmax(attack.scores, axis=0).astype('uint8')
+print(f'picoCTF{{{found_key.tobytes().hex()}}}')
+```
+
+<h3> PowerAnalysis: Part 1 </h3>
+
+![image](https://user-images.githubusercontent.com/64267672/229360796-20f43c9f-a708-4e10-a475-b2733ab184a6.png)
+
+
+    
+This challenge is similar to the warmup one except that a CPU power consumption trace is returned by the server & we add that;
+    
+
+My  scripts for this tasks are not linked with this writeup for other reasons. Cheers
+
+
+
+<h3> SRA </h3>
+
+
+
+Trying to understand the chal.py script;
+
+
+
+```
+This is a Python script that generates a RSA encryption challenge where the user must provide the correct input to obtain the flag. Here is an overview of what the code does:
+
+    1. Imports the necessary functions from the PyCrypto library and the string and random modules.
+    2. Generates a random string of 16 characters, called "pride", consisting of ASCII letters and digits using the choice() function from the random module.
+    3.  Generates two 128-bit prime numbers, "gluttony" and "greed", using the getPrime() function from the PyCrypto library.
+    4. Computes the modulus "lust" as the product of gluttony and greed.
+    5. Sets the public exponent "sloth" to 65537.
+    6. Computes the private exponent "envy" using the inverse() function from the PyCrypto library, which calculates the modular multiplicative inverse of sloth modulo (gluttony-1) * (greed-1).
+    7. Encrypts the ASCII code of the pride string using the RSA algorithm, and saves the result as "anger".
+    8. Prints out the value of the encrypted pride string and the value of the private exponent "envy".
+    9. Asks the user for input and stores the result in the "vainglory" variable after removing leading/trailing spaces.
+    10. Checks whether "vainglory" is equal to the "pride" string that was encrypted earlier.
+    11. If "vainglory" is equal to "pride", the flag is printed by reading the contents of a file called "flag.txt".
+    12. If "vainglory" is not equal to "pride", the program prints "Hubris!".
+
+The challenge requires the user to correctly guess the value of the "pride" string that was encrypted using RSA. Since the encrypted string and the private exponent are both printed out, an attacker with knowledge of RSA encryption can use this information to try and decrypt the string by factoring the modulus "lust" and using the private exponent "envy". The best way to solve this challenge is to use an implementation of the RSA algorithm to compute the private key using the public key parameters provided and then use this private key to decrypt the encrypted string. There are many libraries available for implementing RSA in Python such as PyCrypto, Crypto.Cipher and Cryptodome.
+```
+Came up with a solve script (noshare)
+
+```
+➜  sage solve.py
+[-] Opening connection to saturn.picoctf.net on port 51615: Connected
+anger = 10874849782922899596926546059091484448219162477034704964483223843381834331753
+envy = 6079395884215855559684171323910149420899924737311416787335412267518949259009
+vainglory?
+picoCTF{7h053_51n5_4r3_n0_m0r3_3858bd66}
+➜  sra 
+```
+
 
 
 
